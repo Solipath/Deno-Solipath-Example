@@ -1,0 +1,24 @@
+name: Build Deno
+on:
+  workflow_call:
+  workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+
+    strategy: 
+      matrix:
+        include:
+          - os: macos-latest
+            commandTest: ./solipath deno test
+          - os: ubuntu-latest
+            commandTest: ./solipath deno test
+          - os: windows-latest
+            commandTest: .\solipath deno test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: ${{matrix.commandInstall}}
+    - name: Run tests
+      run: ${{matrix.commandTest}}

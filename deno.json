@@ -1,0 +1,3 @@
+{
+  "imports": { "@std/expect": "jsr:@std/expect@^0.224.1" }
+}
