@@ -18,7 +18,5 @@ jobs:
             commandTest: .\solipath deno test
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: ${{matrix.commandInstall}}
     - name: Run tests
       run: ${{matrix.commandTest}}
